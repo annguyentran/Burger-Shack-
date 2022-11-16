@@ -1,0 +1,1 @@
+// They image of the burger along with title, description, price  

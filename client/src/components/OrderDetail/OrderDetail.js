@@ -1,0 +1,1 @@
+// TODO: a modal to enter customer information such as name, address, total, payment
