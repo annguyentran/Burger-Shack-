@@ -1,9 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-// import { ApolloProvider } from "@apollo/react-hooks";
-// import ApolloClient from "apollo-boost";
-
+//set apollo.router and client
 import {
   ApolloClient,
   ApolloProvider,
@@ -12,10 +8,18 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
+//pages
+import { Routes, Route } from "react-router-dom";
 
-import SearchBooks from "./pages/SearchBooks";
-import SavedBooks from "./pages/SavedBooks";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Dashboard from "./pages/Admin/Dashboard";
+import Burger from "./pages/Burger/index";
+import Cart from "./pages/Cart/index";
+import Menu from "./pages/Menu/index";
+import Login from "./pages/Admin/Login";
+
+//import authorization
 import auth from "./utils/auth";
 
 const httpLink = createHttpLink({
@@ -53,16 +57,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={SearchBooks} />
-            <Route exact path="/saved" component={SavedBooks} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
-          </Switch>
-        </>
-      </Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/burger" element={<Burger/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/menu" element={<Menu/>} />
+        <Route path="/cart" element={<Cart />} />
+        <Route render={() => <h1 className="wrong">Wrong page!</h1>} />
+      </Routes>
+      <Footer />
     </ApolloProvider>
   );
 }
