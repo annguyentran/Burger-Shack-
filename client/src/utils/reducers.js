@@ -1,48 +1,34 @@
 import {
     ADD_BURGER,
-    RESET_CART,
+    REMOVE_BURGER
 } from './actions';
-import createId from './createId';
 
-const initalState = {
-    // cars: [
-    //   {
-    //     id: 1,
-    //     make: 'Honda',
-    //     model: 'Civic',
-    //     year: '2008',
-    //     isRunning: false,
-    //   },
-    //   {
-    //     id: 2,
-    //     make: 'Tesla',
-    //     model: 'Y',
-    //     year: '2021',
-    //     isRunning: false,
-    //   },
-    // ],
-    cart: {
-        products: [],
-        quantity: 0,
-        total: 0,
-    }
-};
 
-// Here we pass a default value of initalState if none is provided
-export default function reducer(state = initalState, action) {
+export default function reducer(state = { cartItems: [] }, action) {
     switch (action.type) {
-        case ADD_BURGER: {
-        
-            // TODO: push burger to cart array, update quantity, and update total by mutipliyng quantity and price
-            
+      case ADD_BURGER:
+        const item = action.payload;
+        const burger = state.cartItems.find((x) => x.burger === item.burger);
+        if (burger) {
+          return {
+            ...state,
+            cartItems: state.cartItems.map((x) =>
+              x.burger === burger.burger ? item : x
+            ),
+          };
         }
-        case RESET_CART: {
-            // TODO: reset cart to initial state 
-        }
-        default: {
-            return state;
-        }
+        return { cartItems: [...state.cartItems, item] };
+  
+      case REMOVE_BURGER:
+        return {
+          cartItems: state.cartItems.filter((x) => x.burger !== action.payload),
+        };
+      default:
+        return state;
     }
-}
+  }
+  
+  export { cartReducer };
+  
 
 

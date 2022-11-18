@@ -2,7 +2,10 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Query {
-    me: User
+    me: Burger
+    getMenu: [Burger]
+    getOrder: Order
+    getSingleBurger
   }
   
   type Order {

@@ -41,6 +41,4 @@ const burgerSchema = new Schema(
 
 );
 const Burger = model('Burger', burgerSchema);
-
-
 module.exports = Burger;
