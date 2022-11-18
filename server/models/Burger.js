@@ -20,18 +20,25 @@ const burgerSchema = new Schema(
             type: [Number],
             required: true,
         },
-        extraOptions: {
-            type: [
-                {
-                    SideDishAndDrink: { type: String, required: true },
-                    price: { type: Number, required: true },
-                },
-            ],
 
-        },
+        sides: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Side'
+            }
+        ]
+
     },
+    {
+        drinks: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Drink'
+
+            }
+        ]
+    }
 
 );
-
-const Burger = model("Burger", burgerSchema);
+const Burger = model('Burger', burgerSchema);
 module.exports = Burger;
