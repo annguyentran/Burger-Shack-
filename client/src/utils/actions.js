@@ -4,9 +4,12 @@ er
  * - pushes new burger to the end of copy of cart array
  * - updates cart array
  */
-export const  ADD_BURGER = ' ADD_BURGER';
+export const  ADD_BURGER = 'ADD_BURGER';
 
 /*
- * RESET_CART:
+ * cartItems:
+    - remove burger from cart
  */
-export const RESET_CART = 'RESET_CART';
+
+
+export const REMOVE_BURGER = 'REMOVE_BURGER'
