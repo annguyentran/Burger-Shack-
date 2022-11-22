@@ -1,48 +1,55 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  type Category {
+    _id: ID
+    name: String
+  }
 
-  type Drink {
+  type Product {
     _id: ID
     name: String
     description: String
+    img: String
     price: Float
-    
+    category: Category
   }
-  
+
   type Order {
     _id: ID
+    purchaseDate: String
     customerName: String
     address: String
     total: Float
-    status: Int
-    method: Int
+    products: [Product]
   }
 
-  type Burger {
-    title: String
-    description: String
-    img: String
-    prices: Int
-    extraOptions: 
+  type Employee {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    orders: [Order]
+
   }
 
-  // TODO: make this work
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     categories: [Category]
-    products(name: String): [Product]
+    products(category: ID, name: String):[Product]
     product(_id: ID!): Product
-    user: User
+    employee: Employee
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
   }
-  
+
   type Mutation {
-    addOrder(products: [ID]!): Order
-    updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
+    addOrder(customerFirstName: String!, customerLastName: String!, email: String!, address: String!, products:[ID]!):Order
+    login(email: String!, password: String!): Order
   }
-
-`;
-
+  
+`
 module.exports = typeDefs;

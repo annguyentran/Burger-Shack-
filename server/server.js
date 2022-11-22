@@ -9,7 +9,7 @@ const db = require("./config/connection");
 const { authMiddleware } = require("./utils/auth");
 
 // const routes = require("./routes");
-
+console.log('12')
 // Express server
 const PORT = process.env.PORT || 3001;
 
@@ -28,6 +28,7 @@ app.use(express.json());
 // if we're in production, serve client/build as static assets
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
+  console.log('31')
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 // app.use(routes);
@@ -35,17 +36,20 @@ if (process.env.NODE_ENV === "production") {
 // have to comment this code out to get the playground to load
 //add the build line in again
 app.get("*", (req, res) => {
+  console.log('38')
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 // Start the Apollo server
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
+  console.log('44')
   await server.start();
   // integrate our Apollo server with the Express application as middleware
   server.applyMiddleware({ app });
 
   db.once("open", () => {
+    console.log('49')
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       // log where we can go to test our GQL API

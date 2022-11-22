@@ -1,6 +1,6 @@
 // navigation bar with link to the menu, contact, homepage, startorder. 
-import { logo } from "../../assets/logo.jpeg"
-import {cartlogo} from "../../assets/cart.jpeg"
+import { logo } from "../assets/logo.jpeg"
+import {cartlogo} from "../assets/cart.jpeg"
 const Navbar = () => {
     const quantity = useSelector((state) => state.cart.quantity);
     return (

@@ -3,7 +3,16 @@ const { Schema, model } = require("mongoose");
 
 const orderSchema = new Schema(
   {
-    customerName: {
+    purchaseDate: {
+      type: Date,
+      default: Date.now
+    },
+    customerFirstName: {
+      type: String,
+      required: true,
+      maxlength: 60,
+    },
+    customerLastName: {
       type: String,
       required: true,
       maxlength: 60,
@@ -25,8 +34,13 @@ const orderSchema = new Schema(
       type: Number,
       required:true
     },
-  },
-
+    products: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
+      }
+    ]
+  }
 );
 const Order = model("Order", orderSchema);
 module.exports = Order;
