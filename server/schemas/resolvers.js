@@ -151,8 +151,7 @@ const resolvers = {
     });
 
     return { session: session.id };
-  }
-},
+  },
 
   Mutation: {
     // TODO: Add mutation
@@ -172,7 +171,9 @@ const resolvers = {
 
     }
   }
+}
 
-};
+
+
 
 module.exports = resolvers;
