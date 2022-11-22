@@ -1,34 +1,72 @@
 import {
-    ADD_BURGER,
-    REMOVE_BURGER
+    ADD_TO_CART,
+    REMOVE_FROM_CART,
+    ADD_QUANTITY,
+    SUB_QUANTITY,
+    EMPTY_CART
 } from './actions';
 
+const initialState = {
+    products: [],
+    quantity: 0,
+    total: 0,
+};
 
-export default function reducer(state = { cartItems: [] }, action) {
+
+export const reducers = (state = initialState, action) => {
     switch (action.type) {
-      case ADD_BURGER:
-        const item = action.payload;
-        const burger = state.cartItems.find((x) => x.burger === item.burger);
-        if (burger) {
-          return {
-            ...state,
-            cartItems: state.cartItems.map((x) =>
-              x.burger === burger.burger ? item : x
-            ),
-          };
-        }
-        return { cartItems: [...state.cartItems, item] };
-  
-      case REMOVE_BURGER:
-        return {
-          cartItems: state.cartItems.filter((x) => x.burger !== action.payload),
-        };
-      default:
-        return state;
+        case ADD_TO_CART:
+            return {
+                ...state,
+                products: state.products.map(product =>
+                    product.id === action.id ? { ...product, selected: true } : product,
+                ),
+            };
+        case REMOVE_FROM_CART:
+            return {
+                ...state,
+                products: state.products.map(product =>
+                    product.id === action.id
+                        ? { ...product, selected: false, quantity: 1 }
+                        : product,
+                ),
+            };
+        case ADD_QUANTITY:
+            return {
+                ...state,
+                products: state.products.map(product =>
+                    product.id === action.id
+                        ? { ...product, quantity: product.quantity + 1 }
+                        : product,
+                ),
+            };
+        case SUB_QUANTITY:
+            return {
+                ...state,
+                products: state.products.map(product =>
+                    product.id === action.id
+                        ? {
+                            ...product,
+                            quantity: product.quantity !== 1 ? product.quantity - 1 : 1,
+                        }
+                        : product,
+                ),
+            };
+        case EMPTY_CART:
+            return {
+                ...state,
+                products: state.products.map(product =>
+                    product.selected
+                        ? { ...product, selected: false, quantity: 1 }
+                        : product,
+                ),
+            };
+        default:
+            return state;
     }
-  }
-  
-  export { cartReducer };
-  
+};
+
+export default reducers;
+
 
 
