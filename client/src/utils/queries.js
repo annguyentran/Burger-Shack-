@@ -1,20 +1,36 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
-// queries for logged in users
-export const GET_ME = gql`
-  query {
-    me {
+export const QUERY_PRODUCTS = gql`
+  query getProducts($category: ID) {
+    products(category: $category) {
       _id
-      username
-      email
-      bookCount
-      savedBooks {
-        bookId
-        authors
-        image
-        description
-        title
-        link
+      name
+      description
+      price
+      quantity
+      image
+    }
+  }
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;
+
+export const QUERY_ALL_PRODUCTS = gql`
+  {
+    products {
+      _id
+      name
+      description
+      price
+      quantity
+      category {
+        name
       }
     }
   }
