@@ -1,11 +1,13 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type Query {
-    me: Burger
-    getMenu: [Burger]
-    getOrder: Order
-    getSingleBurger
+
+  type Drink {
+    _id: ID
+    name: String
+    description: String
+    price: Float
+    
   }
   
   type Order {
@@ -26,8 +28,21 @@ const typeDefs = gql`
   }
 
   // TODO: make this work
-
+  type Query {
+    categories: [Category]
+    products(name: String): [Product]
+    product(_id: ID!): Product
+    user: User
+    order(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
+  }
   
+  type Mutation {
+    addOrder(products: [ID]!): Order
+    updateProduct(_id: ID!, quantity: Int!): Product
+    login(email: String!, password: String!): Auth
+  }
+
 `;
 
 module.exports = typeDefs;
