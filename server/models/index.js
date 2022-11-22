@@ -1,4 +1,6 @@
-const Burger = require('./Burger')
-//const Order = require('./Order')
+const Product = require('./Product')
+const Order = require('./Order')
+const Category = require('./Category')
+const Employee = require('./Employee')
 
-module.exports = {Burger}cd
+module.exports = {Product, Order, Category, Employee}
