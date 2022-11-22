@@ -32,7 +32,7 @@ mutation addBurger($products: [ID]!) {
 
 
 // mutation to remove burger
-export const REMOVE_BOOK = gql`
+export const REMOVE_FROM_CART = gql`
   mutation removeBurger($products: [ID]!)  {
     addBurger(products: $products){
       products {
