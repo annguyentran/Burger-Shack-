@@ -23,10 +23,7 @@ const typeDefs = gql`
     img: String
     prices: Int
     extraOptions: 
-  }
-
-  // TODO: make this work
-
+  } 
   
 `;
 
