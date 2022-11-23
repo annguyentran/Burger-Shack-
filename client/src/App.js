@@ -17,7 +17,7 @@ import Footer from "./components/Footer/Footer";
 import Dashboard from "./pages/Admin/Dashboard";
 import Product from "./pages/Product/index";
 import Cart from "./pages/Cart/index";
-import Menu from "./pages/Menu/index";
+// import Menu from "./pages/Menu/index";
 import Login from "./pages/Admin/Login";
 import { StoreProvider } from './utils/GlobalState';
 
@@ -67,7 +67,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/product" element={<Product/>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/menu" element={<Menu/>} />
+        {/* <Route path="/menu" element={<Menu/>} /> */}
         <Route path="/cart" element={<Cart />} />
         <Route render={() => <h1 className="wrong">Wrong page!</h1>} />
 
