@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { addProduct } from "../../redux/cartSlice";
+//import { addProduct } from "../../redux/cartSlice";
 
 const Product = ({ product }) => {
   const [price, setPrice] = useState(product.prices[0]);

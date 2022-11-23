@@ -1,8 +1,6 @@
 // TODO: A Dashboard where admin can check or change status of all orders. 
 
-// import axios from "axios";
 import { useState } from "react";
-import axios from "axios";
 const Dashboard = ({ orders, products }) => {
   const [productList, setproductList] = useState(products);
   const [orderList, setOrderList] = useState(orders);
