@@ -15,3 +15,20 @@
 //       </div>
 //     );
 //   }
+import React from "react";
+import ProductList from "../../components/ProductList/ProductList";
+import Cart from '../../pages/Cart';
+
+const LandingPage = () => {
+  return (
+    <div className="container">
+        <h2>THis is the landing page/
+        Best Burger Restaurant in San Diego
+        </h2>
+      <ProductList />
+      {/* <Cart /> */}
+    </div>
+  );
+};
+
+export default LandingPage;

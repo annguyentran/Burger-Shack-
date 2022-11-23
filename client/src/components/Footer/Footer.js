@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="container">
       <div className="session">
-        <Image src= {footerImage}  alt="burgers and fries" />
+        <img src= {footerImage}  alt="burgers and fries" />
       </div>
       <div className="session">
         <div className= "card">
