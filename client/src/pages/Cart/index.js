@@ -1,16 +1,16 @@
 // TODO: this page render our cart with orderdetail,  and information such as cart total. and a checkout button to submit
 // import styles from "../styles/Cart.module.css";
-// import Image from "next/image";
+
 import React, { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from '@apollo/react-hooks';
 import { QUERY_CHECKOUT } from "../../utils/queries"
 import { idbPromise } from "../../utils/helpers"
-import CartItem from "../CartItem";
+import ProductCard from "../../components/ProductCard/ProductCard";
 import Auth from "../../utils/auth";
 import { useDispatch, useSelector } from 'react-redux';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
-import "./style.css";
+
 
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -82,7 +82,7 @@ const Cart = () => {
       {state.cart.length ? (
         <div>
           {state.cart.map(item => (
-            <CartItem key={item._id} item={item} />
+            <ProductCard key={item._id} item={item} />
           ))}
 
           <div className="flex-row space-between">

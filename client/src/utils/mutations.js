@@ -14,8 +14,8 @@ export const LOGIN = gql`
 
 // mutation to add burger
 export const ADD_TO_CART = gql`
-mutation addBurger($products: [ID]!) {
-  addBurger(products: $products) {
+mutation addProduct($products: [ID]!) {
+  addProduct(products: $products) {
     products {
       _id
     name
@@ -33,8 +33,8 @@ mutation addBurger($products: [ID]!) {
 
 // mutation to remove burger
 export const REMOVE_FROM_CART = gql`
-  mutation removeBurger($products: [ID]!)  {
-    addBurger(products: $products){
+  mutation removeProduct($products: [ID]!)  {
+    addProduct(products: $products){
       products {
         _id
       name
