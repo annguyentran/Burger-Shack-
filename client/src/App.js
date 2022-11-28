@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import ApolloClient, { ApolloLink, HttpLink } from 'apollo-boost';
 import { onError } from 'apollo-link-error'
 import React from "react";
@@ -14,6 +15,29 @@ import Nav from "./components/Nav";
 import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import Footer from "./components/Footer";
+=======
+import React, { useState } from "react";
+//set apollo.router and client
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+//pages
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import LandingPage from "./pages/LandingPage";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Dashboard from "./pages/Admin/Dashboard";
+import Product from "./pages/Product/index";
+import Cart from "./pages/Cart/index";
+// import Menu from "./pages/Menu/index";
+import Login from "./pages/Admin/Login";
+//import { StoreProvider } from './utils/GlobalState';
+>>>>>>> main
 
 
 const errorLink = onError(({ graphQLErrors }) => {
@@ -34,8 +58,22 @@ const client = new ApolloClient({
 })
 
 function App() {
+
+  const [currentPage, setCurrentPage] = useState('landingPage')
+
+  // const renderPage = () => {
+  //   if (currentPage === 'landingPage') {
+  //     return <LandingPage/>;
+  //   }
+  //   if(currentPage === 'Dashboard') {
+  //     return <Dashboard/>;
+  // };
+
+  const handlePageChange = (page) =>setCurrentPage(page);
+
   return (
     <ApolloProvider client={client}>
+<<<<<<< HEAD
       <Router>
         <div>
           <Provider store={store}>
@@ -52,10 +90,24 @@ function App() {
             </Switch>
           </Provider>
         </div>
+=======
+      <Navbar currentPage={currentPage} handlePageChange={handlePageChange}/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/menu" element={<Menu/>} /> */}
+          <Route path="/cart" element={<Cart />} />
+          <Route render={() => <h1 className="wrong">Wrong page!</h1>} />
+
+        </Routes>
+>>>>>>> main
       </Router>
     </ApolloProvider>
 
   );
-}
+  }
 
 export default App;

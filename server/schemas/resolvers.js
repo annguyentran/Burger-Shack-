@@ -89,6 +89,7 @@ const resolvers = {
       return { session: session.id };
     }
   },
+<<<<<<< HEAD
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
@@ -96,6 +97,12 @@ const resolvers = {
 
       return { token, user };
     },
+=======
+
+  Mutation: {
+    // TODO: Add mutation
+
+>>>>>>> main
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
