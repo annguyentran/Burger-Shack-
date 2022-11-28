@@ -1,4 +1,22 @@
+<<<<<<< HEAD
+import ApolloClient, { ApolloLink, HttpLink } from 'apollo-boost';
+import { onError } from 'apollo-link-error'
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ApolloProvider } from '@apollo/react-hooks';
+import { Provider } from 'react-redux';
+import store from './utils/store';
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Nav from "./components/Nav";
+import Success from "./pages/Success";
+import OrderHistory from "./pages/OrderHistory";
+import Footer from "./components/Footer";
+=======
+import React, { useState } from "react";
 //set apollo.router and client
 import {
   ApolloClient,
@@ -6,7 +24,6 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-
 import { setContext } from "@apollo/client/link/context";
 //pages
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -19,63 +36,78 @@ import Product from "./pages/Product/index";
 import Cart from "./pages/Cart/index";
 // import Menu from "./pages/Menu/index";
 import Login from "./pages/Admin/Login";
-import { StoreProvider } from './utils/GlobalState';
+//import { StoreProvider } from './utils/GlobalState';
+>>>>>>> main
 
 
-//import authorization
-import auth from "./utils/auth";
-
-const httpLink = createHttpLink({
-  uri: "/graphql",
+const errorLink = onError(({ graphQLErrors }) => {
+  if (graphQLErrors) graphQLErrors.map(({ message }) => console.log(message))
 });
 
-const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  const token = auth.getToken();
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    },
-  };
-});
-
-//establish apollo client
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-
   request: (operation) => {
-    const token = localStorage.getItem("id_token");
-
+    const token = localStorage.getItem('id_token')
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : "",
+        authorization: token ? `Bearer ${token}` : ''
       },
-    });
+      link: ApolloLink.from([errorLink, HttpLink])
+    })
   },
-  cache: new InMemoryCache(),
-});
+  uri: '/graphql',
+})
 
 function App() {
+
+  const [currentPage, setCurrentPage] = useState('landingPage')
+
+  // const renderPage = () => {
+  //   if (currentPage === 'landingPage') {
+  //     return <LandingPage/>;
+  //   }
+  //   if(currentPage === 'Dashboard') {
+  //     return <Dashboard/>;
+  // };
+
+  const handlePageChange = (page) =>setCurrentPage(page);
+
   return (
     <ApolloProvider client={client}>
-      <Navbar />
+<<<<<<< HEAD
+      <Router>
+        <div>
+          <Provider store={store}>
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/success" component={Success} />
+              <Route exact path="/orderHistory" component={OrderHistory} />
+              <Route exact path="/products/:id" component={Detail} />
+              <Route component={NoMatch} />
+              <Footer />
+            </Switch>
+          </Provider>
+        </div>
+=======
+      <Navbar currentPage={currentPage} handlePageChange={handlePageChange}/>
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/product" element={<Product/>} />
-        <Route path="/login" element={<Login />} />
-        {/* <Route path="/menu" element={<Menu/>} /> */}
-        <Route path="/cart" element={<Cart />} />
-        <Route render={() => <h1 className="wrong">Wrong page!</h1>} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/menu" element={<Menu/>} /> */}
+          <Route path="/cart" element={<Cart />} />
+          <Route render={() => <h1 className="wrong">Wrong page!</h1>} />
 
         </Routes>
+>>>>>>> main
       </Router>
-      <Footer />
     </ApolloProvider>
+
   );
-}
+  }
 
 export default App;

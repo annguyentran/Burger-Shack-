@@ -1,7 +1,5 @@
-// Creates a Redux store that holds the state of the app. Only one store should exist.
-import { configureStore } from 'redux';
+import { createStore } from 'redux';
+import reducer from './reducers';
 
-// Importing the reducer file that is mostly unchanged
-import reducers from './reducers';
-
-export default configureStore(reducers);
+const store = createStore(reducer);
+export default store;
