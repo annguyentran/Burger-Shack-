@@ -3,7 +3,7 @@ import  logo  from "../../assets/logo.jpeg"
 import cartlogo from "../../assets/cart.png"
 // import { Link } from 'react-router-dom'
 // import {useSelector} from "react-redux"
-const Navbar = () => {
+const Navbar = ({currentPage, handlePageChange}) => {
     // const quantity = useSelector((state) => state.cart.quantity);
     return (
         <div className="container">

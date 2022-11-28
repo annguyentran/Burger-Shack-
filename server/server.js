@@ -9,7 +9,7 @@ const db = require("./config/connection");
 const { authMiddleware } = require("./utils/auth");
 
 // const routes = require("./routes");
-console.log('12')
+
 // Express server
 const PORT = process.env.PORT || 3001;
 

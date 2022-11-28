@@ -1,9 +1,8 @@
 const { Schema, model } = require("mongoose");
 
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
 
-const employeeSchema = new Schema({
+const userSchema = new Schema({
   firstName: {
     type: String,
     required: true,
@@ -19,16 +18,27 @@ const employeeSchema = new Schema({
     required: true,
     unique: true
   },
+  address: {
+    type: String,
+    required: true,
+    maxlength: 200,
+  },
   password: {
     type: String,
     required: true,
     minlength: 5
   },
-  orders: [Order.schema]
+  orders: [
+    {
+      type: Schema.Types.ObjectId,
+      ref:'Order'
+
+    }
+  ]
 });
 
 // set up pre-save middleware to create password
-employeeSchema.pre('save', async function(next) {
+userSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -38,10 +48,10 @@ employeeSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-employeeSchema.methods.isCorrectPassword = async function(password) {
+userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const Employee = model('Employee', employeeSchema);
+const User = model('User', userSchema);
 
-module.exports = Employee;
+module.exports = User;

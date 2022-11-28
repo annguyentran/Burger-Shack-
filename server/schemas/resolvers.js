@@ -76,8 +76,6 @@ const resolvers = {
   Mutation: {
     // TODO: Add mutation
 
-  
-
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
