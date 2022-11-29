@@ -40,8 +40,7 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      {/* <h2>Choose a Category:</h2> */}
+    <div className='categories-list'>
       {categories.map(item => (
         <button
           key={item._id}
@@ -49,7 +48,8 @@ function CategoryMenu() {
             handleClick(item._id);
           }}
         >
-          {item.name}
+          <img src={item.image}/>
+          <p>{item.name}</p>
         </button>
       ))}
     </div>

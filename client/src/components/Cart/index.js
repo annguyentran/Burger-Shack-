@@ -75,6 +75,7 @@ const Cart = () => {
     <div className="cart">
       <div className="close" onClick={toggleCart}>[close]</div>
       <h2>Shopping Cart</h2>
+      <p>Deliver to: {Auth.getProfile().data.address}</p>
       {state.cart.length ? (
         <div>
           {state.cart.map(item => (

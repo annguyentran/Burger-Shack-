@@ -5,12 +5,24 @@ db.once('open', async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
-    { name: 'Chicken' },
-    { name: 'Beef' },
-    { name: 'Pork' },
-    { name: 'Fish' },
-    { name: 'Vegan' },
-    { name: 'Drinks' },
+    { name: 'Chicken',
+      image: "https://thumbs.dreamstime.com/b/chicken-logo-farm-animal-symbol-label-vector-172812412.jpg"
+   },
+    { name: 'Beef',
+      image: 'https://via.placeholder.com/140x100'
+   },
+    { name: 'Pork',
+      image: 'https://via.placeholder.com/140x100'
+   },
+    { name: 'Fish',
+      image: 'https://via.placeholder.com/140x100'
+   },
+    { name: 'Vegan',
+      image: 'https://via.placeholder.com/140x100'
+   },
+    { name: 'Drinks',
+      image: 'https://via.placeholder.com/140x100'
+   },
   ]);
 
   console.log('categories seeded');
@@ -26,7 +38,11 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 2.99,
       quantity: 200,
-      calorie: 533
+      calorie: 533,
+      toppings: [
+        "cheese",
+        "pickles"
+      ]
     },
 
     {
@@ -37,7 +53,11 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 2.99,
       quantity: 200,
-      calorie: 451
+      calorie: 451,
+      toppings: [
+        "cheese",
+        "pickles"
+      ]
     },
     
     {
@@ -48,7 +68,8 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 1.99,
       quantity: 200,
-      calorie: 252
+      calorie: 252,
+      toppings: []
     },
 
     {
@@ -59,7 +80,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       price: 3.99,
       quantity: 200,
-      calorie: 1202
+      calorie: 1202, 
     },
 
     {
@@ -70,7 +91,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       price: 2.99,
       quantity: 200,
-      calorie: 339
+      calorie: 339, 
     },
 
     {
@@ -81,7 +102,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       price: 3.99,
       quantity: 200,
-      calorie: 539
+      calorie: 539, 
     },
 
     {
@@ -92,7 +113,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       price: 1.99,
       quantity: 200,
-      calorie: 669
+      calorie: 669, 
     },
 
     {
@@ -103,7 +124,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       price: 1.99,
       quantity: 200,
-      calorie: 560
+      calorie: 560, 
     },
     {
       name: 'VEGAN BURGER',
@@ -187,4 +208,5 @@ db.once('open', async () => {
   console.log('users seeded');
 
   process.exit();
+
 });

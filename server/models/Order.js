@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
-
+const  Product  = require ('./Product.js')
 const orderSchema = new Schema({
   purchaseDate: {
     type: Date,
@@ -10,11 +9,12 @@ const orderSchema = new Schema({
   products: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: Product
     }
-  ]
+  ],
+  note: {
+    type: String
+  },
 });
-
 const Order = mongoose.model('Order', orderSchema);
-
 module.exports = Order;
