@@ -4,10 +4,13 @@ export function pluralize(name, count) {
   }
   return name + "s";
 }
+<<<<<<< HEAD
 export function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+=======
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 
 export function idbPromise(storeName, method, object) {
   return new Promise((resolve, reject) => {

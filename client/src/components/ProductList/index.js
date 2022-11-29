@@ -6,7 +6,11 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif"
+<<<<<<< HEAD
 import menu from "../../assets/menu.png"
+=======
+
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 function ProductList() {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
@@ -44,11 +48,15 @@ function ProductList() {
 
   return (
     <div className="my-2">
+<<<<<<< HEAD
       {/* <h2>Our Menu:</h2> */}
       
       <img className= "menu" src= {menu}></img>
       <h3 class=" u-text-1">Our Menu</h3>
     
+=======
+      <h2>Our Products:</h2>
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
       {state.products.length ? (
         <div className="flex-row">
             {filterProducts().map(product => (
