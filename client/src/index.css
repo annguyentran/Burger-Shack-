@@ -1,7 +1,7 @@
 :root {
-  --primary: #B12704;
-  --secondary: #F3A847;
-  --tertiary: #232F3E;
+  --primary: #4297b1;
+  --secondary: #8ac8b6;
+  --tertiary: #d2635a;
   --light: white;
   --dark: black;
   --error: rgb(228, 46, 1);
@@ -26,7 +26,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
-  background-color: #cccccc;
+  background-color: #d1c2b7;
 }
 
 h1,
