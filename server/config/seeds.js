@@ -48,7 +48,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 1.99,
       quantity: 200,
-      calorie: 252
+      calorie: 252 
     },
 
     {
