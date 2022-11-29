@@ -74,7 +74,6 @@ function Detail() {
     }
   }
 
-<<<<<<< HEAD
   // const removeFromCart = () => {
   //   dispatch({
   //     type: REMOVE_FROM_CART,
@@ -83,16 +82,6 @@ function Detail() {
 
   //   idbPromise('cart', 'delete', { ...currentProduct });
   // };
-=======
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentProduct._id
-    });
-
-    idbPromise('cart', 'delete', { ...currentProduct });
-  };
->>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 
   return (
     <>
@@ -115,20 +104,12 @@ function Detail() {
             <button onClick={addToCart}>
               Add to Cart
             </button>
-<<<<<<< HEAD
             {/* <button 
-=======
-            <button 
->>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
               disabled={!cart.find(p => p._id === currentProduct._id)} 
               onClick={removeFromCart}
             >
               Remove from Cart
-<<<<<<< HEAD
             </button> */}
-=======
-            </button>
->>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
           </p>
 
           <img
