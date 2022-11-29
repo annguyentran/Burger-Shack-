@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-<<<<<<< HEAD
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
@@ -24,46 +23,25 @@ const productSchema = new Schema({
     type: Number,
     required: true
   },
+  size: {
+    type: String,
+    required: true,
+    enum: ['Small', 'Large'],
+    default: 'Large'
+  },
   quantity: {
     type: Number,
     min: 0,
     default: 0
   },
+  toppings: [],
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
   }
+  
 });
-=======
-const productSchema = new Schema(
-    {
-        name: {
-            type: String,
-            required: true,
-            maxlength: 60,
-        },
-        description: {
-            type: String,
-            required: true,
-            maxlength: 200,
-        },
-        img: {
-            type: String,
-            required: false,
-        },
-        price: {
-            type: Number,
-            required: true,
-            min: 0.99
-        },
-
-        category: {
-            type: Schema.Types.ObjectId,
-            ref: 'Category',
-        }
-    }
->>>>>>> main
 
 const Product = mongoose.model('Product', productSchema);
 

@@ -34,9 +34,21 @@ function Nav() {
               Login
             </Link>
           </li>
+<<<<<<< HEAD
+          <li className="mx-1">
+            <Link to="/careers">
+              Careers
+            </Link>
+          </li>
           <li className="mx-1">           
               <a href="tel:951.310.5642">CALL US</a>
           </li>
+          
+=======
+          <li className="mx-1">           
+              <a href="tel:951.310.5642">CALL US</a>
+          </li>
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
         </ul>
       );
     }
@@ -49,6 +61,10 @@ function Nav() {
           <span role="img" aria-label="bugger shack">🍔</span>
           Burger-Shack 
         </Link>
+<<<<<<< HEAD
+        
+=======
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
       </h1>
 
       <nav>

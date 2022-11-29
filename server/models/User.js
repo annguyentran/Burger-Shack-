@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const Order = require('./Order');
 
 const userSchema = new Schema({
   firstName: {
@@ -19,23 +20,12 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
-  address: {
-    type: String,
-    required: true,
-    maxlength: 200,
-  },
   password: {
     type: String,
     required: true,
     minlength: 5
   },
-  orders: [
-    {
-      type: Schema.Types.ObjectId,
-      ref:'Order'
-
-    }
-  ]
+  orders: [Order.schema]
 });
 
 // set up pre-save middleware to create password
@@ -53,10 +43,7 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-<<<<<<< HEAD
 const User = mongoose.model('User', userSchema);
-=======
-const User = model('User', userSchema);
->>>>>>> main
+
 
 module.exports = User;

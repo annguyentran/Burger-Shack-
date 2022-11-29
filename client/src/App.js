@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 import ApolloClient, { ApolloLink, HttpLink } from 'apollo-boost';
 import { onError } from 'apollo-link-error'
 import React from "react";
@@ -15,6 +18,11 @@ import Nav from "./components/Nav";
 import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import Footer from "./components/Footer";
+<<<<<<< HEAD
+// import Careers from "./components/Careers";
+
+
+=======
 =======
 import React, { useState } from "react";
 //set apollo.router and client
@@ -40,6 +48,7 @@ import Login from "./pages/Admin/Login";
 >>>>>>> main
 
 
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors) graphQLErrors.map(({ message }) => console.log(message))
 });
@@ -74,6 +83,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
       <Router>
         <div>
           <Provider store={store}>
@@ -81,6 +93,10 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
+<<<<<<< HEAD
+              {/* <Route exact path="/careers" component={Careers} /> */}
+=======
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/success" component={Success} />
               <Route exact path="/orderHistory" component={OrderHistory} />
@@ -88,6 +104,11 @@ function App() {
               <Route component={NoMatch} />
               <Footer />
             </Switch>
+<<<<<<< HEAD
+            <Footer/>
+          </Provider>
+        </div>
+=======
           </Provider>
         </div>
 =======
@@ -104,6 +125,7 @@ function App() {
 
         </Routes>
 >>>>>>> main
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
       </Router>
     </ApolloProvider>
 

@@ -16,6 +16,9 @@
 html,
 body {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
   min-height: 100%;
 }
 
@@ -27,6 +30,10 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
+<<<<<<< HEAD
+  background-color: #cccccc;
+=======
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 }
 
 h1,
@@ -43,6 +50,14 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+<<<<<<< HEAD
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+=======
 =======
   background: red;
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath fill-rule="evenodd" d="M0 0h4v4H0V0zm4 4h4v4H4V4z"/%3E%3C/g%3E%3C/svg%3E');
@@ -247,6 +262,7 @@ h2 {
   font-size: 2rem;
 }
 
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 h3 {
   font-size: 1.75rem;
 }
@@ -402,6 +418,30 @@ input:focus {
   color: var(--error);
 }
 
+<<<<<<< HEAD
+.u-text {
+  word-wrap: break-word;
+  position: relative;
+  
+}
+.u-text-1 {
+  width: 612px;
+  margin: 20px auto 0;
+  text-align: center;
+  font-size: 2rem;
+}
+.menu {
+
+    width: 10%;
+    height: 10%;
+    fill: currentColor;
+    margin: auto;
+    display: block;
+
+}
+
+=======
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;

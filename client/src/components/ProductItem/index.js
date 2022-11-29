@@ -7,7 +7,11 @@ import { idbPromise } from "../../utils/helpers";
 import { useSelector, useDispatch } from "react-redux";
 
 function ProductItem(item) {
+<<<<<<< HEAD
+  const { image, name, _id, price, calorie } = item;
+=======
   const { image, name, _id, price, quantity, calorie } = item;
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
 
   // const [state, dispatch] = useStoreContext();
   const state = useSelector((state) => state);
@@ -49,10 +53,15 @@ function ProductItem(item) {
         {calorie} {pluralize("cal", calorie)}
         </div>
         <span>${price}</span>
+<<<<<<< HEAD
+        
+      </div>
+=======
       </div>
       {/* <div>
           {quantity} {pluralize("item", quantity)} in stock
         </div> */}
+>>>>>>> 0e64fd5fe8cdbfd96b74b4491ceace30959eba5d
       <button onClick={addToCart}>Add to cart</button>
     </div>
   );
