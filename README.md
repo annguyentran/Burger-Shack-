@@ -10,4 +10,6 @@ they wrote down when they created their account. Also, their order history are r
 ![BurgerShack](https://user-images.githubusercontent.com/107017473/204683830-d495f22a-94ab-4a05-9fd4-2fc50a9de93c.png)
 
 
-Deployed: 
+Deployed: https://dashboard.heroku.com/apps/burger-shack12/deploy/github
+
+Would recommend to download the code and run locally because the app on heroku is really buggy.
