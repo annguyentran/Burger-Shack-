@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Here we import a helper function that will check if the email is valid
-import { validateEmail } from "../utils/helpers";
+//import { validateEmail } from "../utils/helpers";
 
 function Careers() {
 
@@ -31,16 +31,16 @@ function Careers() {
 
     event.preventDefault();
 
-    // check if the email is valid of empty. set an error messae to be displayed to users on screen
-    if (!validateEmail(email) || !userName) {
-      seterror("Email or Name is invalid");
-      return;    
-    }
-    // check if there is a message
-    if (!setMessage(message)) {
-      seterror(`Message is required.`);
-      return;
-    }
+    //check if the email is valid of empty. set an error messae to be displayed to users on screen
+    // if (!validateEmail(email) || !userName) {
+    //   seterror("Email or Name is invalid");
+    //   return;    
+    // }
+    // // check if there is a message
+    // if (!setMessage(message)) {
+    //   seterror(`Message is required.`);
+    //   return;
+    // }
 
     // clear out the input form after submission
     setUserName("");
