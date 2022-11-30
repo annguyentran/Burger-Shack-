@@ -14,7 +14,7 @@ import Nav from "./components/Nav";
 import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import Footer from "./components/Footer";
-// import Careers from "./components/Careers";
+import Careers from "./components/Careers";
 
 
 const errorLink = onError(({ graphQLErrors }) => {
@@ -44,7 +44,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
-              {/* <Route exact path="/careers" component={Careers} /> */}
+              <Route exact path="/careers" component={Careers} /> 
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/success" component={Success} />
               <Route exact path="/orderHistory" component={OrderHistory} />
