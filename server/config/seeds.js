@@ -9,19 +9,19 @@ db.once('open', async () => {
       image: "https://thumbs.dreamstime.com/b/chicken-logo-farm-animal-symbol-label-vector-172812412.jpg"
    },
     { name: 'Beef',
-      image: 'https://via.placeholder.com/140x100'
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgQWsvgFTgXV1luofu4UWjd5WiQRZDGqjDxyxX1-cv&s'
    },
     { name: 'Pork',
-      image: 'https://via.placeholder.com/140x100'
+      image: 'https://static.vecteezy.com/system/resources/thumbnails/000/580/469/small/sarmi4-12.jpg'
    },
     { name: 'Fish',
-      image: 'https://via.placeholder.com/140x100'
+      image: 'https://thumbs.dreamstime.com/b/fish-logo-design-vector-fish-fishing-logo-design-vector-183363608.jpg'
    },
     { name: 'Vegan',
-      image: 'https://via.placeholder.com/140x100'
+      image: 'https://www.kindpng.com/picc/m/29-298954_salad-lettuce-clipart-black-and-white-hd-png.png'
    },
     { name: 'Drinks',
-      image: 'https://via.placeholder.com/140x100'
+      image: 'https://www.kindpng.com/picc/m/18-187174_food-drink-water-boba-freetoedit-drinks-icon-black.png'
    },
   ]);
 
@@ -190,6 +190,7 @@ db.once('open', async () => {
     firstName: 'Lacey',
     lastName: 'Grindley',
     email: 'lacey133@gmail.com',
+    address: '12345',
     password: 'password1',
     orders: [
       {
@@ -202,6 +203,7 @@ db.once('open', async () => {
     firstName: 'Spencer',
     lastName: 'Roe',
     email: 'roeroeroe@aol.com',
+    address: '12345',
     password: 'password123'
   });
 

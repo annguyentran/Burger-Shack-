@@ -49,19 +49,17 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1 ">
+    <header class="flex-row px-1  ">
       <h1>
         <Link to="/">
           <span role="img" aria-label="bugger shack">🍔</span>
           Burger-Shack 
         </Link>
-        
       </h1>
-
       <nav>
         {showNavigation()}
       </nav>
-    </header>
+\    </header>
   );
 }
 

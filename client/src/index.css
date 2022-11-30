@@ -145,6 +145,7 @@ input:focus {
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .space-between {
@@ -245,3 +246,4 @@ input:focus {
     width: 100%;
   }
 }
+
